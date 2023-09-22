@@ -1,0 +1,161 @@
+body {
+    background-color: rgb(243, 243, 243);
+    .modal{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .emoji {
+            display: flex;
+            margin: auto;
+        }
+      }
+    .title {
+        font-size: clamp(18px, 4vw, 30px);
+    }
+    .container {
+      max-width: 720px;
+      min-width: 320px;
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+  
+      .card {
+        margin-bottom: 25px;
+      }
+  
+      .title {
+        margin: 15px;
+      }
+
+      .btn {
+        display: flex;
+        margin: auto;
+        margin-top: 15px;
+      }
+      @media (max-width: 560px) {
+        .card {
+            margin-bottom: 15px;
+          }
+      }
+    }
+  
+    .select {
+      margin-bottom: 20px;
+    }
+  
+    .select-container {
+      position: relative;
+      width: 200px; 
+      height: 200px; 
+      border: 1px solid #ccc;
+      overflow: visible;
+    }
+  
+    
+  
+    .fav {
+      margin-top: 10px;
+    }
+  
+    .db {
+      margin-bottom: 15px;
+    }
+    
+  
+    .birth-container {
+      display: flex;
+      margin-bottom: 10px;
+      gap: 10px;
+  
+      .date {
+        flex: 1;
+      }
+  
+      .place {
+        flex: 2;
+      }
+      @media (max-width: 560px) {
+        flex-direction: column; // Переключаемся на вертикальное расположение в столбик
+        align-items: stretch; // Растягиваем элементы на всю ширину
+        .place {
+            flex: initial; // Сбрасываем гибкость для элементов, чтобы они занимали всю доступную ширину
+        }
+        .date {
+            flex: 1;
+            width: 100%
+        }
+    }
+      
+    }
+  
+    .container-name {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        gap: 10px;
+        
+        .input-field {
+            flex: 1;
+        }
+    
+        @media (max-width: 560px) {
+            flex-direction: column; // Переключаемся на вертикальное расположение в столбик
+            align-items: stretch; // Растягиваем элементы на всю ширину
+        }
+    }
+  
+    $rem-value: 30px; // Замените значение на вашу базовую единицу rem
+  
+    .wrapper {
+      position: relative;
+      margin-bottom: $rem-value;
+    }
+  
+    .dropzone {
+      border-width: 1px;
+      padding-bottom: $rem-value * 1.6667;
+      .pdf-img {
+        display: flex;
+        margin: auto;
+        width: 100px
+      }
+      @media (max-width: 560px) {
+        .upload-text, .cloud-img{
+          display: none;
+        }
+        .dropzone{
+            height: 150px;
+        }
+        .pdf-img {
+            width: 50px
+          }
+        .file-name{
+            margin-top: 0.5rem;
+        }
+      }
+    }
+    @media (max-width: 560px) {
+        .upload-text, .cloud-img{
+          display: none;
+        }
+        .dropzone{
+            height: 150px;}
+        .pdf-img {
+            display: none;
+          }
+      }
+    .icon {
+      color: gray;
+    }
+  
+    .control {
+      position: absolute;
+      width: $rem-value * 8.3333; // 250 / 30 = 8.3333
+      left: calc(50% - #{$rem-value * 4.1667}); // 125 / 30 = 4.1667
+      bottom: -$rem-value;
+    }
+    
+  }
+.comment{
+    margin-top: 40px;
+}

@@ -1,0 +1,11 @@
+.birth-container {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 10px;
+    .date{
+        flex: 1;
+    }
+    .place{
+        flex: 2;
+    }
+}
