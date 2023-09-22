@@ -1,17 +1,6 @@
 body {
     background-color: rgb(243, 243, 243);
-    .modal{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .emoji {
-            display: flex;
-            margin: auto;
-        }
-      }
-    .title {
-        font-size: clamp(18px, 4vw, 30px);
-    }
+    
     .container {
       max-width: 720px;
       min-width: 320px;
@@ -22,11 +11,20 @@ body {
       .card {
         margin-bottom: 25px;
       }
-  
-      .title {
-        margin: 15px;
-      }
 
+      .modal{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .emoji {
+            display: flex;
+            margin: auto;
+        }
+      }
+      .title {
+        font-size: clamp(18px, 4vw, 30px);
+        margin-bottom: 15px;
+      }
       .btn {
         display: flex;
         margin: auto;
@@ -38,72 +36,6 @@ body {
           }
       }
     }
-  
-    .select {
-      margin-bottom: 20px;
-    }
-  
-    .select-container {
-      position: relative;
-      width: 200px; 
-      height: 200px; 
-      border: 1px solid #ccc;
-      overflow: visible;
-    }
-  
-    
-  
-    .fav {
-      margin-top: 10px;
-    }
-  
-    .db {
-      margin-bottom: 15px;
-    }
-    
-  
-    .birth-container {
-      display: flex;
-      margin-bottom: 10px;
-      gap: 10px;
-  
-      .date {
-        flex: 1;
-      }
-  
-      .place {
-        flex: 2;
-      }
-      @media (max-width: 560px) {
-        flex-direction: column; // Переключаемся на вертикальное расположение в столбик
-        align-items: stretch; // Растягиваем элементы на всю ширину
-        .place {
-            flex: initial; // Сбрасываем гибкость для элементов, чтобы они занимали всю доступную ширину
-        }
-        .date {
-            flex: 1;
-            width: 100%
-        }
-    }
-      
-    }
-  
-    .container-name {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        gap: 10px;
-        
-        .input-field {
-            flex: 1;
-        }
-    
-        @media (max-width: 560px) {
-            flex-direction: column; // Переключаемся на вертикальное расположение в столбик
-            align-items: stretch; // Растягиваем элементы на всю ширину
-        }
-    }
-  
     $rem-value: 30px; // Замените значение на вашу базовую единицу rem
   
     .wrapper {
@@ -143,6 +75,11 @@ body {
         .pdf-img {
             display: none;
           }
+        .btn{
+          
+          display: flex;
+          justify-content: center;
+        }
       }
     .icon {
       color: gray;
@@ -156,6 +93,75 @@ body {
     }
     
   }
+  .container-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 10px;
+    
+    .input-field {
+        flex: 1;
+    }
+
+    @media (max-width: 560px) {
+        flex-direction: column; // Переключаемся на вертикальное расположение в столбик
+        align-items: stretch; // Растягиваем элементы на всю ширину
+    }
+}
+   .birth-container {
+      display: flex;
+      margin-bottom: 10px;
+      gap: 10px;
+  
+      .date {
+        flex: 1;
+      }
+  
+      .place {
+        flex: 2;
+      }
+      @media (max-width: 560px) {
+        flex-direction: column; // Переключаемся на вертикальное расположение в столбик
+        align-items: stretch; // Растягиваем элементы на всю ширину
+        .place {
+            flex: initial; // Сбрасываем гибкость для элементов, чтобы они занимали всю доступную ширину
+        }
+        .date {
+            flex: 1;
+            width: 100%
+        }
+    }
+      
+    }
+    .select {
+      margin-bottom: 20px;
+    }
+  
+    .select-container {
+      position: relative;
+      width: 200px; 
+      height: 200px; 
+      border: 1px solid #ccc;
+      overflow: visible;
+    }
+  
+    
+  
+    .fav {
+      margin-top: 10px;
+    }
+  
+    .db {
+      margin-bottom: 15px;
+    }
+    
+  
+   
+  
+
+  
+
+  
 .comment{
     margin-top: 40px;
 }

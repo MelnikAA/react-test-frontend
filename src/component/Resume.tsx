@@ -66,7 +66,7 @@ const Resume: React.FC<ResumeProps> = ({ control, errors }) => {
         className="dropzone"
         radius="md"
         accept={[MIME_TYPES.pdf]}
-        maxSize={30 * 1024 ** 2}
+        maxSize={1 * 1024 ** 2}
       >
        {field.value  ? ( // Если загружен файл, отображаем его имя и кнопку удаления
           <div style={{ pointerEvents: 'none' }}>
@@ -122,8 +122,8 @@ const Resume: React.FC<ResumeProps> = ({ control, errors }) => {
     );
   }}
 />
-      <Button className='control' size="md" radius="xl" onClick={() => openRef.current?.()}>
-      {uploadedFile ? ("1") : ("Выбрать файл")}   
+      <Button className='control'variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }} size="md" radius="xl" onClick={() => openRef.current?.()}>
+          Выбрать файл
       </Button>
       
      

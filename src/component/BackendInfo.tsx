@@ -14,7 +14,7 @@ interface BackendProps {
 const BackendInfo: React.FC<BackendProps> = ({ control, errors }) => {
     const windowSize = useWindowSize();
     return (
-        <div className='db'>
+        <div className='backend-info'>
     <Controller
         name="backendFrameworks" // Укажите путь к полю в данных формы
         control={control}

@@ -3,9 +3,9 @@ import { DateInput } from '@mantine/dates';
 import { Autocomplete } from '@mantine/core';
 import axios from 'axios';
 
-import { FormValuesWithSkills  } from '../../formTypes';
+import { FormValuesWithSkills  } from '../formTypes';
 import { Control, Controller, FieldErrors } from 'react-hook-form';
-import { useWindowSize } from '../../windowSize';
+import { useWindowSize } from '../windowSize';
 
 interface BirthProps {
     control: Control<FormValuesWithSkills >;

@@ -1,9 +1,9 @@
 import { TextInput } from '@mantine/core';
 import React from 'react';
 import { Controller, FieldErrors, useController } from 'react-hook-form';
-import  { FormValuesWithSkills  }  from '../../formTypes'; 
+import  { FormValuesWithSkills  }  from '../formTypes'; 
 import { Control } from "react-hook-form";
-import { useWindowSize } from '../../windowSize';
+import { useWindowSize } from '../windowSize';
 
   interface FullNameProps {
     control: Control<FormValuesWithSkills >;

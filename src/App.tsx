@@ -4,8 +4,8 @@ import { observer } from 'mobx-react';
 import DirectionStore from './DirectionStore'; // Убедитесь, что путь правильный
 import FrontendInfo from './component/FrontendInfo';
 import BackendInfo from './component/BackendInfo';
-import FullName from './component/fullName/FullName';
-import BirthInformation from './component/birthInformation/BirthInformation';
+import FullName from './component/FullName';
+import BirthInformation from './component/BirthInformation';
 import  Resume  from './component/Resume';
 import Direction from './component/Direction';
 import { Button } from '@mantine/core';
@@ -20,6 +20,7 @@ import { useForm } from 'react-hook-form';
 import  { FormValuesWithSkills  }  from './formTypes'; 
 import { createFormData } from './formDataUtils';
 import { sendFormData } from './api';
+import { useWindowSize } from './windowSize';
 
 
 
@@ -27,6 +28,7 @@ import { sendFormData } from './api';
 const App = () => {
   const { handleSubmit, control, formState: { errors } } = useForm<FormValuesWithSkills>(); // Задайте тип данных формы
   const [opened, { open, close }] = useDisclosure(false);
+  const windowSize = useWindowSize();
   const [registrationId, setRegistrationId] = React.useState(null);
   const onSubmit: SubmitHandler<FormValuesWithSkills > = async (data) => {
     const formData = createFormData(data);
@@ -65,12 +67,20 @@ const App = () => {
 )}
       {DirectionStore.selectedDirection === 'backend' && <BackendInfo control={control} errors={errors}/>}
       
-      {DirectionStore.selectedDirection ? <div className='btn'><Button  type="submit" size="md" radius="xl"  variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>Отправить</Button></div>: ''}
+      {DirectionStore.selectedDirection ? 
+      <div className='btn'>
+        <Button  type="submit" 
+        size={windowSize < 560 ? 'lg' : 'md'}
+        radius="xl"  
+        variant="gradient" 
+        gradient={{ from: 'indigo', to: 'cyan' }}>
+        Отправить</Button>
+      </div>: ''}
     </Card>
     </form>
     </div>
     <Modal opened={opened} onClose={close} className='modal' centered>
-    <Title order={2} ta="center">ID  вашей регистрации <Text span c="blue" inherit>{registrationId}</Text></Title>
+      <Title order={2} ta="center">ID  вашей регистрации <Text span c="blue" inherit>{registrationId}</Text></Title>
       <img style={{width: '200px'}} src={emoji} className='emoji'/>
     </Modal>
     
