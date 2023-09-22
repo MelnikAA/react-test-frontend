@@ -11,6 +11,7 @@ import Direction from './component/Direction';
 import { Button } from '@mantine/core';
 import './main.scss';
 import { SubmitHandler } from 'react-hook-form';
+
 import Comment from './component/Comment';
 import { Title, Text, Card,} from '@mantine/core';
 import { IconCandle } from '@tabler/icons-react';
@@ -26,10 +27,11 @@ import { useWindowSize } from './windowSize';
 
 
 const App = () => {
-  const { handleSubmit, control, formState: { errors } } = useForm<FormValuesWithSkills>(); // Задайте тип данных формы
+  const { handleSubmit, control, formState: { errors }, reset } = useForm<FormValuesWithSkills>(); 
   const [opened, { open, close }] = useDisclosure(false);
   const windowSize = useWindowSize();
   const [registrationId, setRegistrationId] = React.useState(null);
+
   const onSubmit: SubmitHandler<FormValuesWithSkills > = async (data) => {
     const formData = createFormData(data);
   
@@ -38,6 +40,7 @@ const App = () => {
       setRegistrationId(registrationId);
       open();
       console.log('Данные успешно отправлены');
+      reset();
     } catch (error) {
       console.error('Ошибка при отправке данных', error);
     }

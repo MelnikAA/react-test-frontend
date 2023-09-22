@@ -94,7 +94,7 @@ const FrontendInfo: React.FC<FrontendProps> = ({ control, errors  }) => {
             value={field.value}
             onChange={field.onChange}
             label="Любимый SSR-фрейворк"
-            placeholder='Next'
+            placeholder='Bootstrap'
             error={errors.favoriteSSR ? errors.favoriteSSR.message : ''}
             size={windowSize < 768 ? 'md' : undefined}
             className='fav'

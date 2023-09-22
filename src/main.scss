@@ -12,15 +12,6 @@ body {
         margin-bottom: 25px;
       }
 
-      .modal{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .emoji {
-            display: flex;
-            margin: auto;
-        }
-      }
       .title {
         font-size: clamp(18px, 4vw, 30px);
         margin-bottom: 15px;
@@ -36,6 +27,17 @@ body {
           }
       }
     }
+
+    .modal{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .emoji {
+          display: flex;
+          margin: auto;
+      }
+    }
+    
     $rem-value: 30px; // Замените значение на вашу базовую единицу rem
   
     .wrapper {
