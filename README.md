@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Формы регистрации кандидата
 
 Для запуска приложения напишите команду
 ### `npm start`
