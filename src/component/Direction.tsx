@@ -1,25 +1,20 @@
-import React from 'react';
-import { observer } from 'mobx-react';
-import DirectionStore from '../DirectionStore';
-import { Select } from '@mantine/core';
-import { FormValuesWithSkills  } from '../formTypes';
-import { Control, Controller } from 'react-hook-form';
-import { useWindowSize } from '../windowSize';
+import React from "react";
+import { observer } from "mobx-react";
+import DirectionStore from "../DirectionStore";
+import { Select } from "@mantine/core";
+import { FormValuesWithSkills } from "../formTypes";
+import { Controller, useFormContext } from "react-hook-form";
+import { useWindowSize } from "../windowSize";
 
-interface DirectionProps {
-  control: Control<FormValuesWithSkills>; // Используйте Control с типом данных формы
-}
-
-
-const Direction: React.FC<DirectionProps> = observer(({control}) => {
+const Direction: React.FC = observer(() => {
   const windowSize = useWindowSize();
-
+  const { control } = useFormContext<FormValuesWithSkills>();
 
   return (
-    <div className='select'>
-       <Controller
-        name="direction" // Укажите имя поля формы, к которому привязываетесь
-        control={control} // Передайте объект управления формой
+    <div className="select">
+      <Controller
+        name="direction"
+        control={control}
         defaultValue={DirectionStore.selectedDirection || undefined} //
         render={({ field }) => (
           <Select
@@ -32,14 +27,14 @@ const Direction: React.FC<DirectionProps> = observer(({control}) => {
             }}
             label="Направление"
             placeholder="Направление работы"
-            size={windowSize < 768 ? 'md' : undefined}
+            size={windowSize < 768 ? "md" : undefined}
             data={[
-          { value: 'frontend', label: 'Фронтенд' },
-          { value: 'backend', label: 'Бекенд' },
-        ]}
-      />
+              { value: "frontend", label: "Фронтенд" },
+              { value: "backend", label: "Бекенд" },
+            ]}
+          />
         )}
-        />
+      />
     </div>
   );
 });

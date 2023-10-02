@@ -1,8 +1,7 @@
-import { makeObservable, observable, action } from 'mobx';
+import { makeObservable, observable, action } from "mobx";
 
 class DirectionStore {
-  
-  selectedDirection: 'frontend' | 'backend' | null = null;;
+  selectedDirection: "frontend" | "backend" | null = null;
 
   constructor() {
     makeObservable(this, {
@@ -11,11 +10,9 @@ class DirectionStore {
     });
   }
 
-  setDirection(direction: 'frontend' | 'backend') {
+  setDirection(direction: "frontend" | "backend") {
     this.selectedDirection = direction;
   }
-  
 }
-
 
 export default new DirectionStore();

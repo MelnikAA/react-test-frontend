@@ -1,73 +1,42 @@
-import React from 'react';
-import { Checkbox, Group } from '@mantine/core';
-import { IBackSkills } from '../formTypes';
-import { observer } from 'mobx-react-lite';
-import { Control, Controller, FieldErrors } from 'react-hook-form';
-import { FormValuesWithSkills } from '../formTypes';
-import { useWindowSize } from '../windowSize';
+import React from "react";
+import { Checkbox, Group } from "@mantine/core";
+import { IBackSkills } from "../formTypes";
+import { Controller, useFormContext } from "react-hook-form";
+import { useWindowSize } from "../windowSize";
+import { CheckboxInfo } from "./CheckboxInfo";
 
-interface BackendProps {
-    control: Control<FormValuesWithSkills >; 
-    errors: FieldErrors<IBackSkills>;// Используйте Control с типом данных формы
-  }
+const BackendInfo: React.FC = () => {
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext<IBackSkills>();
 
-const BackendInfo: React.FC<BackendProps> = ({ control, errors }) => {
-    const windowSize = useWindowSize();
-    return (
-        <div className='backend-info'>
-    <Controller
-        name="backendFrameworks" // Укажите путь к полю в данных формы
-        control={control}
-        defaultValue={[]} 
-        rules={{
-            required: 'Выберите хотя бы один пункт',
-        }}
-        render={({ field }) => (
-          <Checkbox.Group
-            value={field.value}
-            onChange={(value) => field.onChange(value)}
-            label="Опыт работы с фреймворками"
-            error={errors.backendFrameworks ? errors.backendFrameworks.message : ''}
-            size={windowSize < 768 ? 'md' : undefined}
-            className='l'
-          >
-            <Group mt="xs">
-              <Checkbox value="express" label="Express" className='check'/>
-              <Checkbox value="springboot" label="Spring Boot" className='check'/>
-              <Checkbox value="nest" label="Nest" className='check'/>
-             
-            </Group>
-          </Checkbox.Group>
-        )}
+  const windowSize = useWindowSize();
+  return (
+    <div className="backend-info">
+      <CheckboxInfo
+        groupName="backendFrameworks"
+        groupLabel="Опыт работы с фреймворками"
+        checkboxData={[
+          { value: "express", label: "Express", className: "check" },
+          { value: "springboot", label: "Spring Boot", className: "check" },
+          { value: "nest", label: "Nest", className: "check" },
+          // Добавьте другие чекбоксы по вашему выбору
+        ]}
       />
 
-<Controller
-        name="database" // Укажите путь к полю в данных формы
-        control={control}
-        defaultValue={[]}
-        rules={{
-            required: 'Выберите хотя бы один пункт',
-        }} 
-        render={({ field }) => (
-          <Checkbox.Group
-            value={field.value}
-            onChange={(value) => field.onChange(value)}
-            label="Опыт работы с базами данных"
-            error={errors.database ? errors.database.message : ''}
-            size={windowSize < 768 ? 'md' : undefined}
-            className='l'
-          >
-            <Group mt="xs">
-              <Checkbox value="postgresql" label="PostgreSQL" className='check'/>
-              <Checkbox value="sqlite" label="SQLite" className='check'/>
-              <Checkbox value="mongodb" label="MongoDB" className='check'/>
-             
-            </Group>
-          </Checkbox.Group>
-        )}
+      <CheckboxInfo
+        groupName="database"
+        groupLabel="Выберите базы данных"
+        checkboxData={[
+          { value: "postgresql", label: "PostgreSQL", className: "check" },
+          { value: "sqlite", label: "SQLite", className: "check" },
+          { value: "mongodb", label: "MongoDB", className: "check" },
+          // Добавьте другие чекбоксы по вашему выбору
+        ]}
       />
-        </div>
-    );
+    </div>
+  );
 };
 
 export default BackendInfo;
